@@ -45,35 +45,54 @@ void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic() {
   sparkDrive->MecDrive(js1->GetRawAxis(0), -(js1->GetRawAxis(1)), js1->GetRawAxis(2), js1->GetRawButton(3), false);
-  if(js1->GetRawButton(6)){
+  
+  if(js1->GetRawButton(1)) //1 - X Button
+  {
+    //Get Ball
     intake->Set(ControlMode::PercentOutput, 1);
-  }
-  else if(js1->GetRawButton(8)){
+  } 
+  else if(js1->GetRawButton(2)) //2 - A button
+  {
+    //Shoot Ball
     intake->Set(ControlMode::PercentOutput, -1);
-  }
-  else {
+  } 
+  else 
+  {
+    //Constant Intake to Keep Ball in Robot's Control.
     intake->Set(ControlMode::PercentOutput, .2);
   }
 
-  if(js1->GetRawButton(7)){
+  if(js1->GetRawButton(6)) //7 - Right Bumper
+  {
+    //Set Wrist Toward Upright Position
     wrist->Set(ControlMode::PercentOutput, .5);
-  }
-  else if(js1->GetRawButton(5)){
+  } 
+  else if(js1->GetRawButton(8)) //5 - Right Trigger
+  {
+    //Set Wrist Toward Pickup/Shooting Position
     wrist->Set(ControlMode::PercentOutput, -.5);
-  }
-  else{
+  } 
+  else
+  {
+    //Set Wrist to 0 by default.
     wrist->Set(ControlMode::PercentOutput, 0);
   }
 
-  if(js1->GetRawButton(4)){
+  if(js1->GetRawButton(5)) //5 - Left Bumper
+  {
+    //Lifter Up
     lift->Set(ControlMode::PercentOutput, 1);
-  }
-  else if(js1->GetRawButton(2)){
+  } 
+  else if(js1->GetRawButton(7)) //7 - Left Trigger
+  {
+    //Lifter Down
     lift->Set(ControlMode::PercentOutput, -1);
-  }
+  } 
   else
+  {
+    //Lifter Set to 0 by Default.
     lift->Set(ControlMode::PercentOutput, 0);
-
+  }
 }
 void Robot::TestPeriodic() {}
 
