@@ -44,7 +44,7 @@ void Robot::AutonomousPeriodic() {
 void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic() {
-  sparkDrive->MecDrive(js1->GetRawAxis(0), -(js1->GetRawAxis(1)), js1->GetRawAxis(2), false, true);
+  sparkDrive->MecDrive(js1->GetRawAxis(0), -(js1->GetRawAxis(1)), js1->GetRawAxis(2), js1->GetRawButton(3), false);
   if(js1->GetRawButton(6)){
     intake->Set(ControlMode::PercentOutput, 1);
   }
