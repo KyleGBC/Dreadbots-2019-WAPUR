@@ -54,10 +54,10 @@ void Robot::AutonomousPeriodic() {
 void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic() {
-  left1 -> Set(ControlMode::PercentOutput, -1*js1->GetRawAxis(3) + js1->GetRawAxis(0));
-  left2 -> Set(ControlMode::PercentOutput, -1*js1->GetRawAxis(3) + js1->GetRawAxis(0));
-  right1 -> Set(ControlMode::PercentOutput, js1->GetRawAxis(3) + js1->GetRawAxis(0));
-  right2 -> Set(ControlMode::PercentOutput, js1->GetRawAxis(3) + js1->GetRawAxis(0));
+  left1 -> Set(ControlMode::PercentOutput, js1->GetRawAxis(1) + js1->GetRawAxis(2));
+  left2 -> Set(ControlMode::PercentOutput, js1->GetRawAxis(1) + js1->GetRawAxis(2));
+  right1 -> Set(ControlMode::PercentOutput, -1*js1->GetRawAxis(1) + js1->GetRawAxis(2));
+  right2 -> Set(ControlMode::PercentOutput, -1*js1->GetRawAxis(1) + js1->GetRawAxis(2));
 
   if(js1->GetRawButton(5)){
     incline->Set(frc::DoubleSolenoid::Value::kForward);
