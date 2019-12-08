@@ -34,7 +34,7 @@ void Robot::AutonomousInit() {
 
 void Robot::AutonomousPeriodic() {
   if(count < 50){
-    sparkDrive->MecDrive(0, -1, 0, false, false);
+    sparkDrive->MecDrive(0, 1, 0, false, false);
   }
   else{
     sparkDrive->MecDrive(0, 0, 0, false, false);
