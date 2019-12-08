@@ -31,7 +31,7 @@ void Robot::RobotInit() {
 void Robot::RobotPeriodic() {}
 
 void Robot::AutonomousInit() {
-  int count = 0;
+  count = 0;
 }
 
 void Robot::AutonomousPeriodic() {
