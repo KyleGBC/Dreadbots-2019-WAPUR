@@ -35,7 +35,7 @@ void Robot::AutonomousInit() {
 }
 
 void Robot::AutonomousPeriodic() {
-  if(count < 100){
+  if(count < 50){
     left1 -> Set(ControlMode::PercentOutput, -1);
     left2 -> Set(ControlMode::PercentOutput, -1);
     right1 -> Set(ControlMode::PercentOutput, 1);
