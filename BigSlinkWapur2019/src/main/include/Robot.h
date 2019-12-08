@@ -34,6 +34,7 @@ class Robot : public frc::IterativeRobot {
   WPI_TalonSRX *intake;
   WPI_TalonSRX *wrist;
   WPI_TalonSRX *lift;
+  int count;
 
  private:
   frc::SendableChooser<std::string> m_chooser;

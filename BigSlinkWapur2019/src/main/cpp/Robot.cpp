@@ -29,16 +29,17 @@ void Robot::RobotInit() {
 void Robot::RobotPeriodic() {}
 
 void Robot::AutonomousInit() {
-  m_autoSelected = m_chooser.GetSelected();
-  std::cout << "Auto selected: " << m_autoSelected << std::endl;
-  if (m_autoSelected == kAutoNameCustom) {
-  } else {
-  }
+  count = 0;
 }
 
 void Robot::AutonomousPeriodic() {
-  std::cout << "wrist: " << wrist->GetSelectedSensorPosition() << std::endl;
-  std::cout << "Lift: " << lift->GetSelectedSensorPosition() << std::endl;
+  if(count < 125){
+    sparkDrive->MecDrive(0, -1, 0, false, false);
+  }
+  else{
+    sparkDrive->MecDrive(0, 0, 0, false, false);
+  }
+  count++;
 }
 
 void Robot::TeleopInit() {}

@@ -31,6 +31,7 @@ class Robot : public frc::IterativeRobot {
   frc::Compressor *compressor;
   frc::DoubleSolenoid *incline;
   frc::Solenoid *tailFeathers;
+  int count;
   
   
  private:

@@ -31,24 +31,23 @@ void Robot::RobotInit() {
 void Robot::RobotPeriodic() {}
 
 void Robot::AutonomousInit() {
-  m_autoSelected = m_chooser.GetSelected();
-  // m_autoSelected = SmartDashboard::GetString(
-  //     "Auto Selector", kAutoNameDefault);
-  std::cout << "Auto selected: " << m_autoSelected << std::endl;
-
-  if (m_autoSelected == kAutoNameCustom) {
-    // Custom Auto goes here
-  } else {
-    // Default Auto goes here
-  }
+  int count = 0;
 }
 
 void Robot::AutonomousPeriodic() {
-  if (m_autoSelected == kAutoNameCustom) {
-    // Custom Auto goes here
-  } else {
-    // Default Auto goes here
+  if(count < 100){
+    left1 -> Set(ControlMode::PercentOutput, -1);
+    left2 -> Set(ControlMode::PercentOutput, -1);
+    right1 -> Set(ControlMode::PercentOutput, 1);
+    right2 -> Set(ControlMode::PercentOutput, 1);
   }
+  else{
+    left1 -> Set(ControlMode::PercentOutput, 0);
+    left2 -> Set(ControlMode::PercentOutput, 0);
+    right1 -> Set(ControlMode::PercentOutput, 0);
+    right2 -> Set(ControlMode::PercentOutput, 0);
+  }   
+  count++;
 }
 
 void Robot::TeleopInit() {}
